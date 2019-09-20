@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Navigation from './components/Navigation'
-import Homepage from './components/HomePage'
+import HomePage from './components/HomePage'
 import GlobalStyle from './components/GlobalStyle'
 
 export default function App() {
