@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import Button from './Button'
 
 const SettingsPage = () => {
   return (
@@ -17,7 +18,7 @@ const SettingsPage = () => {
           placeholder="Antwort"
           rows="5"
         ></TextareaStyled>
-        <button>Submit</button>
+        <Button>Submit</Button>
       </FormStyled>
     </section>
   )
