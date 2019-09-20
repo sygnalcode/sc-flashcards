@@ -1,13 +1,24 @@
 import React from 'react'
+import styled from 'styled-components/macro'
 
-export default function Navigation({ buttonTexts, onClick }) {
+function Navigation({ buttonTexts, onClick }) {
   return (
-    <nav className="Navigation">
+    <NavigationStyled>
       {buttonTexts.map((text, index) => (
-        <button onClick={() => onClick(index)} key={index}>
+        <ButtonStyled onClick={() => onClick(index)} key={index}>
           {text}
-        </button>
+        </ButtonStyled>
       ))}
-    </nav>
+    </NavigationStyled>
   )
 }
+
+const NavigationStyled = styled.nav`
+  display: flex;
+`
+const ButtonStyled = styled.button`
+  font-size: 2em;
+  flex-grow: 1;
+`
+
+export default Navigation

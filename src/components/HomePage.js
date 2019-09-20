@@ -1,9 +1,10 @@
 import React from 'react'
+import styled from 'styled-components/macro'
 import Card from './Card'
 
-export default function HomePage({ cards }) {
+function HomePage({ cards }) {
   return (
-    <section className="page">
+    <PageStyled>
       <h1>Homepage</h1>
       {cards.map((card, index) => (
         <Card
@@ -13,6 +14,15 @@ export default function HomePage({ cards }) {
           answer={card.answer}
         />
       ))}
-    </section>
+    </PageStyled>
   )
 }
+
+const PageStyled = styled.section`
+  padding: 20px;
+  display: grid;
+  align-content: flex-start;
+  gap: 20px;
+`
+
+export default HomePage

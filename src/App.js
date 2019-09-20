@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Navigation from './components/Navigation'
 import HomePage from './components/HomePage'
 import GlobalStyle from './components/GlobalStyle'
+import Layout from './components/Layout'
 
 export default function App() {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -30,13 +31,15 @@ export default function App() {
   }
 
   return (
-    <div className="App">
-      <GlobalStyle />
-      {renderPage()}
-      <Navigation
-        buttonTexts={['Home', 'Practice', 'Bookmarks', 'Settings']}
-        onClick={setActiveIndex}
-      />
+    <div>
+      <Layout>
+        <GlobalStyle />
+        {renderPage()}
+        <Navigation
+          buttonTexts={['Home', 'Practice', 'Bookmarks', 'Settings']}
+          onClick={setActiveIndex}
+        />
+      </Layout>
     </div>
   )
 }
