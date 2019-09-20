@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import Card from './Card'
 
-function HomePage({ cards }) {
+const HomePage = ({ cards }) => {
   return (
     <PageStyled>
       <h1>Homepage</h1>

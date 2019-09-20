@@ -1,11 +1,20 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 
-function Card({ title, question, answer }) {
+const Card = ({ title, question, answer }) => {
   const [isAnswerVisible, setIsAnswerVisible] = useState(false)
 
-  function toggleAnswer() {
+  const toggleAnswer = () => {
     setIsAnswerVisible(!isAnswerVisible)
+  }
+
+  const Answer = ({ text }) => {
+    return (
+      <React.Fragment>
+        <hr />
+        <p>{text}</p>
+      </React.Fragment>
+    )
   }
 
   return (
@@ -15,15 +24,6 @@ function Card({ title, question, answer }) {
       {isAnswerVisible && <Answer text={answer} />}
     </CardStyled>
   )
-
-  function Answer({ text }) {
-    return (
-      <React.Fragment>
-        <hr />
-        <p>{text}</p>
-      </React.Fragment>
-    )
-  }
 }
 
 const CardStyled = styled.section`

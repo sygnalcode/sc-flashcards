@@ -4,22 +4,23 @@ import HomePage from './components/HomePage'
 import GlobalStyle from './components/GlobalStyle'
 import Layout from './components/Layout'
 
-export default function App() {
+const App = () => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [cards, setCards] = useState([
     {
-      title: 'Foo',
-      question: 'What?',
-      answer: 'That!'
+      title: 'Array: Elemente ausloggen',
+      question:
+        'Wie logge ich alle Strings aus einem Array mit mehreren Strings aus?',
+      answer: 'list.forEach(element => console.log(element))'
     },
     {
-      title: 'Bar',
-      question: 'This?',
-      answer: 'That!'
+      title: 'HTML-Element erzeugen',
+      question: 'Wie erzeuge ich ein neues HTML-Element in JavaScript?',
+      answer: "document.createElement('div')"
     }
   ])
 
-  function renderPage() {
+  const renderPage = () => {
     const pages = {
       0: <HomePage cards={cards} />,
       1: <section>Practice</section>,
@@ -43,3 +44,5 @@ export default function App() {
     </div>
   )
 }
+
+export default App

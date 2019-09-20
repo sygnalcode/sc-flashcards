@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-function Navigation({ buttonTexts, onClick }) {
+const Navigation = ({ buttonTexts, onClick }) => {
   return (
     <NavigationStyled>
       {buttonTexts.map((text, index) => (
