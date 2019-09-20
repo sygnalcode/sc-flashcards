@@ -1,7 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Navigation from './components/Navigation'
+import Homepage from './components/HomePage'
+import GlobalStyle from './components/GlobalStyle'
 
-function App() {
-  return <div>hallo welt</div>
+export default function App() {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [cards, setCards] = useState([
+    {
+      title: 'Foo',
+      question: 'What?',
+      answer: 'That!'
+    },
+    {
+      title: 'Bar',
+      question: 'This?',
+      answer: 'That!'
+    }
+  ])
+
+  function renderPage() {
+    const pages = {
+      0: <HomePage cards={cards} />,
+      1: <section>Practice</section>,
+      2: <section>Bookmarks</section>,
+      3: <section>Settings</section>
+    }
+
+    return pages[activeIndex] || <section>404</section>
+  }
+
+  return (
+    <div className="App">
+      <GlobalStyle />
+      {renderPage()}
+      <Navigation
+        buttonTexts={['Home', 'Practice', 'Bookmarks', 'Settings']}
+        onClick={setActiveIndex}
+      />
+    </div>
+  )
 }
-
-export default App
