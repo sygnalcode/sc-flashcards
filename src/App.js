@@ -3,6 +3,7 @@ import Navigation from './components/Navigation'
 import HomePage from './components/HomePage'
 import GlobalStyle from './components/GlobalStyle'
 import Layout from './components/Layout'
+import SettingsPage from './components/Settings'
 
 const App = () => {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -25,7 +26,7 @@ const App = () => {
       0: <HomePage cards={cards} />,
       1: <section>Practice</section>,
       2: <section>Bookmarks</section>,
-      3: <section>Settings</section>
+      3: <SettingsPage />
     }
 
     return pages[activeIndex] || <section>404</section>
