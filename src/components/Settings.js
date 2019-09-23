@@ -1,13 +1,17 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import Button from './Button'
-import { link } from 'fs'
 
-const SettingsPage = () => {
+export default function SettingsPage({ onSubmit }) {
+  function handleSubmit(event) {
+    event.preventDefault()
+    onSubmit({ title, question, answer })
+  }
+
   return (
     <section>
       <h1>settings</h1>
-      <FormStyled>
+      <FormStyled onSubmit={handleSubmit}>
         <InputStyled type="text" placeholder="Titel"></InputStyled>
         <TextareaStyled
           type="textarea"
@@ -15,7 +19,7 @@ const SettingsPage = () => {
           rows="5"
         ></TextareaStyled>
         <TextareaStyled
-          type="textarea"
+          type="textarea" 
           placeholder="Antwort"
           rows="5"
         ></TextareaStyled>
@@ -38,5 +42,3 @@ const InputStyled = styled.input`
 const TextareaStyled = styled.textarea`
   font-size: 1.1em;
 `
-
-export default SettingsPage

@@ -20,12 +20,17 @@ const App = () => {
     }
   ])
 
+  function createCard(cardData) {
+    console.log(cardData.target)
+    // todo
+  }
+
   const renderPage = () => {
     const pages = {
       0: <HomePage cards={cards} />,
       1: <section>Practice</section>,
       2: <section>Bookmarks</section>,
-      3: <SettingsPage />
+      3: <SettingsPage onSubmit={createCard} />
     }
 
     return pages[activeIndex] || <section>404</section>
