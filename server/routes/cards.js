@@ -1,22 +1,8 @@
-const uid = require('uid')
 const router = require('express').Router()
-const saveFile = require('../utils/saveFile')
 
 const Card = require('../models/Card')
 
-function saveCards(data) {
-  return saveFile('cards.json', data)
-}
-
 let cards
-
-try {
-  cards = require('../data/cards.json').map(card => {
-    return { id: uid(), ...card }
-  })
-} catch {
-  cards = []
-}
 
 router.get('/', (req, res) => {
   Card.find()
