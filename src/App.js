@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import Navigation from './components/Navigation'
 import HomePage from './components/HomePage'
-import GlobalStyle from './components/GlobalStyle'
-import Layout from './components/Layout'
+import PageStyled from './components/PageStyled'
 import SettingsPage from './components/Settings'
 
 const App = () => {
@@ -34,14 +33,13 @@ const App = () => {
 
   return (
     <div>
-      <Layout>
-        <GlobalStyle />
+      <PageStyled>
         {renderPage()}
         <Navigation
           buttonTexts={['Home', 'Practice', 'Bookmarks', 'Settings']}
           onClick={setActiveIndex}
         />
-      </Layout>
+      </PageStyled>
     </div>
   )
 }

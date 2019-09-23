@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import Button from './Button'
+import { link } from 'fs'
 
 const SettingsPage = () => {
   return (
@@ -18,7 +19,7 @@ const SettingsPage = () => {
           placeholder="Antwort"
           rows="5"
         ></TextareaStyled>
-        <Button>Submit</Button>
+        <Button>Create card</Button>
       </FormStyled>
     </section>
   )
