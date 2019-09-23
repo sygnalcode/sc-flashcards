@@ -2,16 +2,18 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import Card from './Card'
 
-const CardList = ({ cards, title }) => {
+const CardList = ({ cards, title, onBookmarkClick }) => {
   return (
     <PageStyled>
       <h1>{title}</h1>
-      {cards.map((card, index) => (
+      {cards.map(card => (
         <Card
-          key={index}
+          key={card._id}
           title={card.title}
           question={card.question}
           answer={card.answer}
+          isBookmarked={card.isBookmarked}
+          onBookmarkClick={() => onBookmarkClick(card)}
         />
       ))}
     </PageStyled>

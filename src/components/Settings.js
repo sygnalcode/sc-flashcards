@@ -7,6 +7,7 @@ export default function SettingsPage({ onSubmit }) {
     event.preventDefault()
     const formData = new FormData(event.target)
     const data = Object.fromEntries(formData)
+    // console.log(data)
     onSubmit(data)
   }
 
@@ -25,6 +26,10 @@ export default function SettingsPage({ onSubmit }) {
         <LabelStyled>
           Answer
           <textarea name="answer" />
+        </LabelStyled>
+        <LabelStyled>
+          Bookmark
+          <input type="checkbox" name="isBookmarked" />
         </LabelStyled>
         <Button>Create card</Button>
       </FormStyled>

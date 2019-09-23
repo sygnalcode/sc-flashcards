@@ -10,9 +10,9 @@ export function postCard(data) {
   return fetchCards({ method: 'POST', data })
 }
 
-// export function patchCard(id, data) {
-//   return fetchCards({ method: 'PATCH', id, data })
-// }
+export function patchCard(id, data) {
+  return fetchCards({ method: 'PATCH', id, data })
+}
 
 // export function deleteCard(id) {
 //   return fetchCards({ method: 'DELETE', id })
