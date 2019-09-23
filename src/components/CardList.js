@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import Card from './Card'
 
-const HomePage = ({ cards }) => {
+const CardList = ({ cards, title }) => {
   return (
     <PageStyled>
-      <h1>Homepage</h1>
+      <h1>{title}</h1>
       {cards.map((card, index) => (
         <Card
           key={index}
@@ -25,4 +25,4 @@ const PageStyled = styled.section`
   gap: 20px;
 `
 
-export default HomePage
+export default CardList

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Navigation from './components/Navigation'
-import HomePage from './components/HomePage'
+import CardList from './components/CardList'
 import PageStyled from './components/PageStyled'
 import SettingsPage from './components/Settings'
-import { getAllCards } from './services'
+import { getAllCards, postCard } from './services'
 
 export default function App() {
   useEffect(() => {
@@ -14,15 +14,24 @@ export default function App() {
   const [cards, setCards] = useState([])
 
   function createCard(cardData) {
-    console.log(cardData)
-    // todo
+    postCard(cardData).then(card => setCards([...cards, card]))
   }
 
   const renderPage = () => {
     const pages = {
-      0: <HomePage cards={cards} />,
-      1: <section>Practice</section>,
-      2: <section>Bookmarks</section>,
+      0: <CardList title="Home" cards={cards} />,
+      1: (
+        <CardList
+          title="Practice"
+          cards={cards.filter(card => card.doPractice)}
+        />
+      ),
+      2: (
+        <CardList
+          title="Bookmarks"
+          cards={cards.filter(card => card.isBookmarked)}
+        />
+      ),
       3: <SettingsPage onSubmit={createCard} />
     }
 
