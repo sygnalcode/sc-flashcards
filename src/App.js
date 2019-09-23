@@ -1,27 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Navigation from './components/Navigation'
 import HomePage from './components/HomePage'
 import PageStyled from './components/PageStyled'
 import SettingsPage from './components/Settings'
+import { getAllCards } from './services'
 
-const App = () => {
+export default function App() {
+  useEffect(() => {
+    getAllCards().then(setCards)
+  }, [])
+
   const [activeIndex, setActiveIndex] = useState(0)
-  const [cards, setCards] = useState([
-    {
-      title: 'Array: Elemente ausloggen',
-      question:
-        'Wie logge ich alle Strings aus einem Array mit mehreren Strings aus?',
-      answer: 'list.forEach(element => console.log(element))'
-    },
-    {
-      title: 'HTML-Element erzeugen',
-      question: 'Wie erzeuge ich ein neues HTML-Element in JavaScript?',
-      answer: "document.createElement('div')"
-    }
-  ])
+  const [cards, setCards] = useState([])
 
   function createCard(cardData) {
-    console.log(cardData.target)
+    console.log(cardData)
     // todo
   }
 
@@ -48,5 +41,3 @@ const App = () => {
     </div>
   )
 }
-
-export default App
